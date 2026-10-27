@@ -1,0 +1,38 @@
+{
+  "manifest_version": "0.3",
+  "name": "mcp-bsl-context-desktop-bridge",
+  "display_name": "Синтакс-помощник 1С (mcp-bsl-context)",
+  "version": "1.0.0",
+  "description": "Справка по API платформы 1С:Предприятие в Claude Desktop: методы, свойства, события, перечисления, «не рекомендуется», доступность. Подключается к вашему серверу mcp-bsl-context.",
+  "long_description": "Мост stdio → Streamable HTTP к серверу mcp-bsl-context (https://github.com/alkoleft/mcp-bsl-platform-context), запущенному в режиме --mode streamable. Адрес сервера указывается при установке. Инструменты: search, info, getMember, getMembers, getConstructors. Вместе с инструментами Claude получает правила работы со справкой: проверять сигнатуры, учитывать «не рекомендуется» и доступность, различать управляемые и обычные формы.",
+  "author": { "name": "Roman Khusiainov", "url": "https://github.com/r-khusiainov" },
+  "repository": { "type": "git", "url": "https://github.com/r-khusiainov/mcp-bsl-context-desktop-bridge" },
+  "homepage": "https://github.com/r-khusiainov/mcp-bsl-context-desktop-bridge",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.mjs"],
+      "env": { "SYNTAX_HELPER_URL": "${user_config.server_url}" }
+    }
+  },
+  "tools": [
+    { "name": "search", "description": "Поиск по API платформы 1С" },
+    { "name": "info", "description": "Подробная справка по методу, свойству или типу" },
+    { "name": "getMember", "description": "Метод, свойство или событие конкретного типа (в т.ч. ГлобальныйКонтекст)" },
+    { "name": "getMembers", "description": "Все методы, свойства и события типа" },
+    { "name": "getConstructors", "description": "Конструкторы типа" }
+  ],
+  "user_config": {
+    "server_url": {
+      "type": "string",
+      "title": "Адрес MCP-сервера",
+      "description": "Адрес сервера mcp-bsl-context в режиме streamable, например http://<сервер>:<порт>/mcp",
+      "required": true
+    }
+  },
+  "compatibility": { "platforms": ["win32", "darwin", "linux"], "runtimes": { "node": ">=18.0.0" } },
+  "keywords": ["1c", "1с", "bsl", "mcp", "syntax", "синтакс-помощник"],
+  "license": "MIT"
+}

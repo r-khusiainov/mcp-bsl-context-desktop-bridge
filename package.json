@@ -1,0 +1,10 @@
+{
+  "name": "mcp-bsl-context-desktop-bridge",
+  "private": true,
+  "type": "module",
+  "description": "Расширение Claude Desktop (.mcpb): мост stdio -> Streamable HTTP к серверу mcp-bsl-context",
+  "license": "MIT",
+  "scripts": { "build": "bash build.sh" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.32.2" },
+  "devDependencies": { "esbuild": "0.25.0", "@anthropic-ai/mcpb": "2.1.2" }
+}

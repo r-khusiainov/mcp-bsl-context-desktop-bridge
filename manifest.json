@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "mcp-bsl-context-desktop-bridge",
   "display_name": "Синтакс-помощник 1С (mcp-bsl-context)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Справка по API платформы 1С:Предприятие в Claude Desktop: методы, свойства, события, перечисления, «не рекомендуется», доступность. Подключается к вашему серверу mcp-bsl-context.",
   "long_description": "Мост stdio → Streamable HTTP к серверу mcp-bsl-context (https://github.com/alkoleft/mcp-bsl-platform-context), запущенному в режиме --mode streamable. Адрес сервера указывается при установке. Инструменты: search, info, getMember, getMembers, getConstructors. Вместе с инструментами Claude получает правила работы со справкой: проверять сигнатуры, учитывать «не рекомендуется» и доступность, различать управляемые и обычные формы.",
   "author": { "name": "Roman Khusiainov", "url": "https://github.com/r-khusiainov" },
